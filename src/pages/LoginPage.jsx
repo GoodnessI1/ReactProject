@@ -69,81 +69,84 @@ const Loginpage = () => {
           Student Registration
         </Typography>
 
-        <Paper
-          elevation={3}
-          sx={{
-            padding: 2,
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            width: "70%",
-            marginTop: "1rem",
-          }}
-        >
-          <TextField
-            label="FullName"
-            name="name"
-            value={formData.name}
-            // onChange={handleChange}
-            margin="normal"
-            required
-            sx={{ width: "80%" }}
-          />
-          <TextField
-            label="Student ID"
-            name="studentId"
-            value={formData.studentId}
-            // onChange={handleChange}
-            margin="normal"
-            required
-            sx={{ width: "80%" }}
-          />
-          <TextField
-            label="Email"
-            name="email"
-            type="email"
-            value={formData.email}
-            // onChange={handleChange}
-            margin="normal"
-            required
-            sx={{ width: "80%" }}
-          />
-
-          <TextField
-            label="Course"
-            name="course"
-            type="course"
-            value={formData.course}
-            // onChange={handleChange}
-            margin="normal"
-            required
-            sx={{ width: "80%" }}
-          />
-
-          <TextField
-            select
-            label="Gender"
-            name="gender"
-            value={formData.gender}
-            // onChange={handleChange}
-            margin="normal"
-            required
-            sx={{ width: "80%" }}
+        <Paper elevation={3} sx={{width:"70%"}}>
+          <form
+            onSubmit={handleSubmit}
+            style={{
+              padding: 2,
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              width: "100%",
+              marginTop: "1rem",
+              paddingBottom: "1.1rem"
+            }}
           >
-            <MenuItem value="male">male</MenuItem>
-            <MenuItem value="female">female</MenuItem>
-          </TextField>
+            <TextField
+              label="FullName"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              margin="normal"
+              required
+              sx={{ width: "80%" }}
+            />
+            <TextField
+              label="Student ID"
+              name="studentId"
+              value={formData.studentId}
+              onChange={handleChange}
+              margin="normal"
+              required
+              sx={{ width: "80%" }}
+            />
+            <TextField
+              label="Email"
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
+              margin="normal"
+              required
+              sx={{ width: "80%" }}
+            />
 
-          <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-            fullWidth
-            sx={{ width: "30%", marginTop: "1rem" }}
-          >
-            Login
-          </Button>
+            <TextField
+              label="Course"
+              name="course"
+              type="course"
+              value={formData.course}
+              onChange={handleChange}
+              margin="normal"
+              required
+              sx={{ width: "80%" }}
+            />
+
+            <TextField
+              select
+              label="Gender"
+              name="gender"
+              value={formData.gender}
+              onChange={handleChange}
+              margin="normal"
+              required
+              sx={{ width: "80%" }}
+            >
+              <MenuItem value="male">male</MenuItem>
+              <MenuItem value="female">female</MenuItem>
+            </TextField>
+
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              fullWidth
+              sx={{ width: "30%", marginTop: "1rem" }}
+            >
+              Login
+            </Button>
+          </form>
         </Paper>
       </Box>
     </div>
