@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
@@ -6,8 +6,11 @@ import MenuItem from "@mui/material/MenuItem";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 import img1 from "../assets/man.png";
+import {DataContext} from "../context/DataContext"
 
 const Loginpage = () => {
+  const {data} = useContext(DataContext)
+  
   const [formData, setFormData] = useState({
     name: "",
     studentId: "",
@@ -26,7 +29,7 @@ const Loginpage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    data(formData);
   };
 
   return (
