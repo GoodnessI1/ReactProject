@@ -1,12 +1,18 @@
 import { useState } from "react";
 import Loginpage from "./pages/Loginpage";
-// import './App.css'
+import {BrowserRouter, Routes, Route} from "react-router-dom"
+import { DataProvider } from "./context/DataContext";
 
 function App() {
   return (
-    <>
-      <Loginpage />
-    </>
+      <DataProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Loginpage />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+          </Routes>
+        </BrowserRouter>
+      </DataProvider>
   );
 }
 
