@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
@@ -6,11 +7,12 @@ import MenuItem from "@mui/material/MenuItem";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 import img1 from "../assets/man.png";
-import {DataContext} from "../context/DataContext"
+import { DataContext } from "../context/DataContext";
 
 const Loginpage = () => {
-  const {data} = useContext(DataContext)
-  
+  const navigate = useNavigate();
+  const { login } = useContext(DataContext);
+
   const [formData, setFormData] = useState({
     name: "",
     studentId: "",
@@ -29,7 +31,8 @@ const Loginpage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    data(formData);
+    login(formData);
+    navigate("/dashboard");
   };
 
   return (
@@ -72,7 +75,7 @@ const Loginpage = () => {
           Student Registration
         </Typography>
 
-        <Paper elevation={3} sx={{width:"70%"}}>
+        <Paper elevation={3} sx={{ width: "70%" }}>
           <form
             onSubmit={handleSubmit}
             style={{
@@ -83,7 +86,7 @@ const Loginpage = () => {
               alignItems: "center",
               width: "100%",
               marginTop: "1rem",
-              paddingBottom: "1.1rem"
+              paddingBottom: "1.1rem",
             }}
           >
             <TextField

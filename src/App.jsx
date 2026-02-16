@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Loginpage from "./pages/Loginpage";
+import Dashboard from "./pages/Dashboard";
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 import { DataProvider } from "./context/DataContext";
 
