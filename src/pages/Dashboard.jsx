@@ -10,36 +10,44 @@ export default function Dashboard() {
     return <Navigate to="/" />;
   }
 
-  const courseList = [
-    "Logic",
-    "RDBMS",
-    "Mongo",
-    "Java",
-    "RWD",
-    "React",
-    "Git & Github",
-    "Spring",
-  ];
+  const courseList = {
+    FirstSemester: ["Logic", "RDBMS", "Mongo", "Java",],
+    SecondSemester: ["RWD","React","Git & Github"],
+    ThirdSemester: ["Spring", "JUnit 5"],
+    FourthSemester: ["Kubernetes", "Docker", "Jenkins"],
+  };
+
+  const name = user.name;
+  const nameCap = name.charAt(0).toUpperCase() + name.slice(1);
+  const course = "Master Mind Series (MMS)";
 
   return (
-    <Box>
-      <Paper elevation={3}>
-        <Typography variant="h3">{user.name}'s Dashboard</Typography>
+    <Box sx={{display: "flex", flexDirection: "column"}}>
+      <Paper sx={{padding: "2rem", display: "flex", justifyContent: "center", alignItems: "center", marginTop: "0.2rem", border: "none", boxShadow: "none"}}>
+        <Typography variant="h3">Welcome! {nameCap}</Typography>
       </Paper>
-      <Box>
-        <Box>
-          <Typography variant="h4">Course: {user.course}</Typography>
-          {/* {user.course == "mms" ? } */}
-          <Typography variant="h4">Email: {user.email}</Typography>
+      <Box sx={{display: "flex", flexDirection: "column", gap: "1rem", padding: "2.5rem", paddingTop: "0"}}>
+        <Box sx={{}}>
+          <Typography variant="h5">Course: {course}</Typography>
+          <Typography variant="h5">Email: {user.email}</Typography>
         </Box>
         <Box>
           <Box>
-            <Typography variant="h4">Course List</Typography>
-            <Box>
-              {courseList.map((c) => {
+            <Typography variant="h4" sx={{width: "100%", display: "flex", justifyContent: "center", padding: "1rem"}}>Course List</Typography>
+            <Box sx={{display: "flex", flexDirection: "column", gap: "1.2rem"}}>
+              {Object.keys(courseList).map((semester) => {
                 return (
-                  <Paper key="c" elevation={4}>
-                    {c}
+                  <Paper key={semester} elevation={4} sx={{padding: "1rem", gap: "5rem"}}>
+                    <Typography variant="h5">{semester}</Typography>
+                    <Box sx={{display: "flex", gap: "2rem", padding: "1rem"}}>
+                      {courseList[semester].map((c) => {
+                        return (
+                          <Paper key={c} elevation={4} sx={{padding: "0.5rem", width: "15vw", height: "5vw", display: "flex", justifyContent: "center", alignItems: "center"}}>
+                            <Typography variant="h6">{c}</Typography>
+                          </Paper>
+                        );
+                      })}
+                    </Box>
                   </Paper>
                 );
               })}
@@ -47,13 +55,6 @@ export default function Dashboard() {
           </Box>
         </Box>
       </Box>
-
-      {/* <h1>Dashboard</h1>
-      <p>{user.name}</p>
-      <p>{user.studentId}</p>
-      <p>{user.email}</p>
-      <p>{user.course}</p>
-      <p>{user.gender}</p> */}
     </Box>
   );
 }

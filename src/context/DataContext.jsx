@@ -7,12 +7,7 @@ export const DataProvider = ({ children }) => {
 
   const login = (userData) => {
     setuser(userData);
-    console.log(user);
   };
-
-//   const logout = () => {
-//     setuser(null);
-//   };
 
   return (
     <DataContext.Provider value={{ user, login }}>
